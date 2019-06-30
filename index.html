@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Blake e-Learning Demo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Sriharsha">
+<meta name="keywords" content="">
+</head>
+<body>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style type="text/css">
+svg{stroke:currentColor;fill:currentColor;stroke-width:1}
+.w3-bar-item{border-left:6px solid transparent!important}
+.w3-bar-item:not(:disabled):hover{border-color:#f44336!important}
+.w3-bar-item:focus{border-color:#2196F3!important}
+.w3-bar-item.expanded{color:#fff;background-color:#616161}
+button.collapsed + div,button.collapsed>:nth-child(3),button.expanded>:nth-child(2){display:none!important}
+.w3-bar-item input[type=radio],.w3-bar-item label{cursor:pointer}
+.w3-button{background-color:transparent}
+.w3-bar-item:focus-within{border-color:#2196F3!important}
+body {
+background-image: url('background.jpg');
+}
+#timeInput{
+	background-image: url('digital_times.png');
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+	margin-left:0px;
+	margin-top:150px;
+	background-size: 250px 116px;
+	width:300px;
+	height:116px;
+}
+</style>
+
+<div  style="display:none" id="mySidebar">
+  <!--<button class="w3-bar-item w3-button w3-ripple w3-large w3-hide-large" onclick="closeSidebar()">Close<span class="w3-right">&times;</span></button>
+    -->
+		<button class="w3-bar-item w3-button w3-ripple collapsed" onclick="dropdown(this)"style="width:220px;z-index:2;display:none">
+		<span>Set Mode</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</button>
+		<div class="w3-bar-block w3-light-grey" style="width:220px;z-index:2;display:none">
+			<div class="w3-bar-item w3-button" onclick="setClockMode(this)">
+				<input id="modeTimepicker" class="w3-radio" type="radio" name="mode" value="false">
+				<label for="modeTimepicker">Timepicker</label>
+			</div>
+			<div class="w3-bar-item w3-button" onclick="setClockMode(this)" style="width:220px;z-index:2;display:none">
+				<input id="modeClock" class="w3-radio" type="radio" name="mode" value="true" checked>
+				<label for="modeClock">Analog Clock</label>
+			</div>
+		</div>
+	
+  
+  
+ 
+  <button class="w3-bar-item w3-button w3-ripple collapsed" onclick="dropdown(this)" style="display:none">
+		<span>Set Background</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</button>
+		<div class="w3-bar-block w3-light-grey" style="width:220px;z-index:2;display:none">
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('amber')">Amber</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('aqua')">Aqua</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('black')">Black</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('blue')">Blue</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('blue-grey')">Blue grey</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('brown')">Brown</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('cyan')">Cyan</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('dark-grey')">Dark grey</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('deep-orange')">Deep orange</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('deep-purple')">Deep purple</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('green')">Green</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('indigo')">Indigo</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('khaki')">Khaki</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('light-blue')">Light blue</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('light-green')">Light green</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('light-grey')">Light grey</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('lime')">Lime</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('orange')">Orange</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('pale-blue')">Pale blue</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('pale-green')">Pale green</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('pale-red')">Pale red</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('pale-yellow')">Pale yellow</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('pink')">Pink</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('purple')">Purple</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('red')">Red</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('sand')">Sand</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('teal')">Teal</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('white')">White</button>
+			<button class="w3-bar-item w3-button w3-ripple" onclick="setBackground('yellow')">Yellow</button>
+		</div>
+  
+</div>
+
+<div class="w3-main" >
+	<div class="w3-container w3-padding w3-black">
+		<button class="w3-button w3-ripple w3-xlarge w3-hide-large w3-left" style="margin:6px 8px 0px -16px" onclick="openSidebar()">
+			<svg width="18" height="23"><path d="M0 6L18 6L18 8L0 8Z M0 13L18 13L18 15L0 15Z M0 20L18 20L18 22L0 22Z"/></svg>
+		</button>
+		<h2>BLAKE E LEARING DEMO</h2>
+	</div>
+      
+   
+  
+  <div class="w3-dropdown-hover" style="margin-left:250px">
+  <button class="w3-button w3-yellow"> <span style='color:blue;font-weight:bold;font:36px Curlz MT'>Select Hour Format<span></button>
+   <div class="w3-dropdown-content w3-bar-block w3-border">
+			<button class="w3-button w3-yellow" id="hour12" class="w3-radio"  name="hour" value="false" onclick="set24Hour(this)">
+				<label for="hour12">12 Hour</label>
+			</button>
+			
+				<button class="w3-button w3-yellow" id="hour24" class="w3-radio"  name="hour" value="true" onclick="set24Hour(this)">
+				<label for="hour24">24 Hour</label>
+				</button>
+			
+		 </div>
+		 </div>
+		 
+		
+		 
+	<div class="w3-dropdown-hover">
+	<button class="w3-button w3-yellow"> <span style='color:blue;font-weight:bold;font:36px Curlz MT'>My Favourite Colour is<span></button>
+   
+		 <div class="w3-dropdown-content w3-bar-block w3-border">
+			
+			<div class="w3-bar-item w3-button w3-yellow" onclick="setLightTheme(this)">
+				<input id="themeLight" class="w3-radio w3-yellow" type="radio" name="theme" value="true" checked>
+				<label for="themeLight">GREEN</label>
+				</div>
+			<div class="w3-bar-item w3-button w3-yellow" onclick="setLightTheme(this)">
+				<input id="themeDark" class="w3-radio w3-yellow" type="radio" name="theme" value="false" >
+			<label for="themeDark">BLACK</label>
+			</div>
+			</div>
+		</div>	
+	</div>		
+	
+	
+	<div id="playbutton" style = "margin-top:20px;margin-left:350px">
+	<button id="timeString" onclick="pickTime(event)" class="w3-button w3-yellow"> <span style='color:blue;font-weight:bold;font:36px Curlz MT'>PLAY WITH CLOCK!!!</span></button>
+    </div>
+	
+	<div class="clockContainers" style = "width:1000px;margin-left:140px"> 
+    
+	<div id="timepicker" style = "width:500px;float:left">
+			
+	</div>
+	
+    <div class = "digitalClk" style = "width:500px;float:left" > 
+	<div id="timeInput" >
+		 <input id="valHour"  type="text"  placeholder="HH" style="border:2px solid green;background-color:yellow;width:50px;margin-left:60px; text-align:center;font:36px Curlz MT;font-weight:bold" onchange="setTime()">
+		 <input id="valMinute" type="text" placeholder="MM"style="margin-left:0px;border:2px solid green;background-color:yellow;width:50px;margin-top:20px;text-align:center;font:36px Curlz MT;font-weight:bold"onchange="setTime()">
+		 <input id="valAmPm" type="text" placeholder="" style="margin-left:0px;border:2px solid green;background-color:yellow;width:55px;margin-top:20px;text-align:left;font:36px Curlz MT;font-weight:bold"onchange="setTime()">
+				
+	</div>
+	</div>
+	</div>
+	
+	
+	
+	
+		
+</div>		
+<script type="text/javascript" src="timepicker.js"></script>
+<script type="text/javascript">
+'use strict';
+const picker=new Timepicker();
+const container=document.getElementById('timepicker');
+const pickerElm=picker.getElement();
+pickerElm.style.marginLeft='calc(25%)';
+pickerElm.style.marginTop='100px';
+container.appendChild(pickerElm);
+picker.setClockMode(true);
+picker.show();
+
+
+picker.onPicked=function(){
+	const timeStr=document.getElementById('timeString');
+	document.getElementById('visibilityHide').checked=true;
+	timeStr.value=picker.getTimeString();
+	timeStr.focus()
+};
+
+function pickTime(ev){
+   
+	const docWidth=document.body.offsetWidth;
+	ev=ev||window.event;
+	let ml=ev.pageX-136;
+	if(ml+272>docWidth)ml=docWidth-272;
+	if(docWidth>992)ml-=220;
+	if(ml<0)ml=0;
+	//pickerElm.style.marginLeft=ml+'px';
+	document.getElementById('modeTimepicker').checked=true;
+	
+	picker.setClockMode(false);
+	picker.show();
+	(ev.target||ev.srcElement).blur()
+}
+
+function setClockMode(el){
+	el.children[0].checked=true;
+	picker.setClockMode(el.children[0].value=='true')
+}
+
+function set24Hour(el){
+	//el.children[0].checked=true;
+	//picker.set24Hour(el.children[0].value=='true')
+	//el.value=true;
+	picker.set24Hour(el.value)
+}
+
+function setLightTheme(el){
+	el.children[0].checked=true;
+	picker.setLightTheme(el.children[0].value=='true')
+}
+
+function setVisibility(el){
+	el.children[0].checked=true;
+	el.children[0].value=='show'?picker.show():picker.hide()
+}
+
+function setTime(){
+	let h=document.getElementById('valHour').value;
+	let m=document.getElementById('valMinute').value;
+	if(h!='')picker.setHours(h);
+	if(m!='')picker.setMinutes(m)
+}
+
+function setBackground(c){
+	let s=container.className;
+	s=s.substr(0,s.lastIndexOf('w3')+3)+c;
+	container.className=s
+}
+
+function openSidebar(){
+	document.getElementById("mySidebar").style.display = "block"
+}
+
+function closeSidebar(){
+	document.getElementById("mySidebar").style.display = "none"
+}
+
+function dropdown(el){
+	if(el.className.indexOf('expanded')==-1){
+		el.className=el.className.replace('collapsed','expanded');
+	}else{
+		el.className=el.className.replace('expanded','collapsed')
+	}
+}
+</script>
+</body>
+</html>
